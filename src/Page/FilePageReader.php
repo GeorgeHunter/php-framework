@@ -3,6 +3,7 @@
 namespace App\Page;
 
 use InvalidArgumentException;
+use Parsedown;
 
 class FilePageReader implements PageReader
 {
@@ -23,6 +24,10 @@ class FilePageReader implements PageReader
             throw new InvalidPageException($slug);
         }
 
-        return file_get_contents($path);
+
+        $Parsedown = new Parsedown();
+
+
+        return $Parsedown->text(file_get_contents($path));;
     }
 }

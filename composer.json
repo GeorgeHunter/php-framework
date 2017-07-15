@@ -17,7 +17,8 @@
     "nikic/fast-route": "^1.2",
     "rdlowrey/auryn": "^1.4",
     "mustache/mustache": "^2.12",
-    "twig/twig": "~1.0"
+    "twig/twig": "~1.0",
+    "erusev/parsedown": "^1.6"
   },
   "autoload": {
     "psr-4": {
