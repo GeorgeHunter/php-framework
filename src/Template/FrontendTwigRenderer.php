@@ -2,22 +2,23 @@
 
 namespace App\Template;
 
+use App\Menu\MenuReader;
+
 class FrontendTwigRenderer implements FrontendRenderer
 {
     private $renderer;
+    private $menuReader;
 
-    function __construct(Renderer $renderer)
+    function __construct(Renderer $renderer, MenuReader $menuReader)
     {
         $this->renderer = $renderer;
+        $this->menuReader = $menuReader;
     }
 
     public function render($template, $data = []) : string
     {
         $data = array_merge($data, [
-            'menuItems' => [
-                ['href' => '/', 'text' => 'Homepage'],
-            ],
-            'menuClass' => 'main-nav'
+            'menuItems' => $this->menuReader->readMenu(),
         ]);
 
         return $this->renderer->render($template, $data);
