@@ -1,0 +1,8 @@
+<div class="{{ menuClass }}">
+    {% for item in menuItems %}
+    <a href="{{ item['href'] }}">{{ item['text'] }}</a><br>
+    {% endfor %}
+</div>
+<hr>
+{% block content %}
+{% endblock %}
